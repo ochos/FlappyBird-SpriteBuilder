@@ -197,23 +197,23 @@
     
     _parallaxBackground.position = ccp(_parallaxBackground.position.x - (character.physicsBody.velocity.x * delta), _parallaxBackground.position.y);
     
-//    // loop the bushes
-//    for (CCNode *bush in _bushes) {
-//        // get the world position of the bush
-//        CGPoint bushWorldPosition = [_parallaxBackground convertToWorldSpace:bush.position];
-//        // get the screen position of the bush
-//        CGPoint bushScreenPosition = [self convertToNodeSpace:bushWorldPosition];
-//        
-//        // if the left corner is one complete width off the screen,
-//        // move it to the right
-//        if (bushScreenPosition.x <= (-1 * bush.contentSize.width)) {
-//            for (CGPointObject *child in _parallaxBackground.parallaxArray) {
-//                if (child.child == bush) {
-//                    child.offset = ccp(child.offset.x + 2*bush.contentSize.width, child.offset.y);
-//                }
-//            }
-//        }
-//    }
+    // loop the bushes
+    for (CCNode *bush in _bushes) {
+        // get the world position of the bush
+        CGPoint bushWorldPosition = [_parallaxBackground convertToWorldSpace:bush.position];
+        // get the screen position of the bush
+        CGPoint bushScreenPosition = [self convertToNodeSpace:bushWorldPosition];
+        
+        // if the left corner is one complete width off the screen,
+        // move it to the right
+        if (bushScreenPosition.x <= (-1 * bush.contentSize.width)) {
+            for (CGPointObject *child in _parallaxBackground.parallaxArray) {
+                if (child.child == bush) {
+                    child.offset = ccp(child.offset.x + 2*bush.contentSize.width, child.offset.y);
+                }
+            }
+        }
+    }
     
     // loop the clouds
     for (CCNode *cloud in _clouds) {
@@ -233,20 +233,20 @@
         }
     }
     
-    // move and loop the bushes
-    for (CCNode *bush in _bushes) {
-        // move the bush
-        bush.position = ccp(bush.position.x -
-                            (character.physicsBody.velocity.x * delta), bush.position.y);
-        
-        // if the left corner is one complete width off the screen,
-        // move it to the right
-        if (bush.position.x <= (-1 * bush.contentSize.width)) {
-            bush.position = ccp(bush.position.x +
-                                2 * bush.contentSize.width, bush.position.y);
-        }
-    }
-//
+//    // move and loop the bushes
+//    for (CCNode *bush in _bushes) {
+//        // move the bush
+//        bush.position = ccp(bush.position.x -
+//                            (character.physicsBody.velocity.x * delta), bush.position.y);
+//        
+//        // if the left corner is one complete width off the screen,
+//        // move it to the right
+//        if (bush.position.x <= (-1 * bush.contentSize.width)) {
+//            bush.position = ccp(bush.position.x +
+//                                2 * bush.contentSize.width, bush.position.y);
+//        }
+//    }
+//    
 //    // move and loop the clouds
 //    for (CCNode *cloud in _clouds) {
 //        // move the cloud
